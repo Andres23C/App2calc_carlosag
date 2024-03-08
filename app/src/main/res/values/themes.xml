@@ -5,5 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.App2calc_carlosag" parent="Base.Theme.App2calc_carlosag" />
+    <style name="Theme.App2calc_carlosag" parent="Base.Theme.App2calc_carlosag">
+    <item name="colorPrimary">@color/design_default_color_on_primary</item>
+    <item name="colorPrimaryDark">@android:color/holo_blue_light</item>
+    <item name="colorAccent">@color/design_default_color_primary_variant</item>
+    </style>
 </resources>

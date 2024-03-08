@@ -3,16 +3,23 @@
     android:layout_height="match_parent">
 
     <!-- Aquí coloca los elementos para la entrada de valores -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="Calculadora"/>
+
     <EditText
         android:id="@+id/lado1EditText"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:hint="Lado 1"/>
 
     <EditText
         android:id="@+id/lado2EditText"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:layout_below="@id/lado1EditText"
         android:layout_marginTop="10dp"
         android:hint="Lado 2"/>
@@ -20,20 +27,20 @@
     <EditText
         android:id="@+id/anguloEditText"
         android:layout_width="wrap_content"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:layout_below="@id/lado2EditText"
         android:layout_marginTop="10dp"
-        android:hint="Ángulo"/>
+        android:hint="Ángulo (Para seno y coseno)"/>
 
     <Button
         android:id="@+id/calcularButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/anguloEditText"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
+        android:layout_below="@id/lado2EditText"
+        android:layout_marginTop="200dp"
         android:backgroundTint="#0234C8"
-        android:textColor="@color/cardview_light_background"
-        android:text="Calcular" />
+        android:layout_centerHorizontal="true"
+        android:text="Calcular"
+        android:textColor="@color/cardview_light_background" />
 
 </RelativeLayout>

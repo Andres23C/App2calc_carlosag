@@ -1,5 +1,6 @@
 package com.app2calc_carlosag;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ public class resultado extends AppCompatActivity {
 
     Button btnVolverMain;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +37,19 @@ public class resultado extends AppCompatActivity {
         TextView perimetroTextView = findViewById(R.id.perimetroTextView);
         perimetroTextView.setText("Perímetro: " + perimetro);
 
+        btnVolverMain = findViewById(R.id.btnVolverMain);
+        btnVolverMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción para volver al MainActivity
+                volverAlMainActivity();
+            }
+        });
+
+    }
+    private void volverAlMainActivity() {
+        Intent intent = new Intent(resultado.this, MainActivity.class);
+        startActivity(intent);
+        finish();  // Esto ayuda a cerrar la actividad actual y liberar recursos
     }
 }
