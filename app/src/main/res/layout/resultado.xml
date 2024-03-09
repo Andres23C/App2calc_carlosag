@@ -6,31 +6,28 @@
     android:gravity="center">
 
     <TextView
+        android:id="@+id/resultadoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resultado: "
+        android:textSize="16dp"
+        android:layout_marginTop="200dp"/>
+
+    <TextView
         android:id="@+id/senoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seno:" />
+        android:layout_marginTop="20dp"
+        android:text="Seno: "
+        android:textSize="16dp"/>
 
     <TextView
         android:id="@+id/cosenoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Coseno:" />
-
-    <TextView
-        android:id="@+id/areaTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Área (Cuadrado):" />
-
-    <TextView
-        android:id="@+id/perimetroTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Perímetro (Cuadrado):" />
+        android:layout_marginTop="20dp"
+        android:text="Coseno: "
+        android:textSize="16dp"/>
 
     <Button
         android:id="@+id/btnVolverMain"

@@ -7,7 +7,7 @@
 
     <style name="Theme.App2calc_carlosag" parent="Base.Theme.App2calc_carlosag">
     <item name="colorPrimary">@color/design_default_color_on_primary</item>
-    <item name="colorPrimaryDark">@android:color/holo_blue_light</item>
-    <item name="colorAccent">@color/design_default_color_primary_variant</item>
+    <item name="colorPrimaryDark">#3700B3</item>
+    <item name="colorAccent">#33B5E5</item>
     </style>
 </resources>

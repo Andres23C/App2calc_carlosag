@@ -1,61 +1,72 @@
 package com.app2calc_carlosag;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class MainActivity extends AppCompatActivity {
-
-    private EditText lado1EditText, lado2EditText, anguloEditText;
+    EditText lado1, lado2, angulo;
+    RadioGroup radioGroup;
+    Button calcularButton;
 
     @SuppressLint("MissingInflatedId")
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Elementos de la interfaz
-        lado1EditText = findViewById(R.id.lado1EditText);
-        lado2EditText = findViewById(R.id.lado2EditText);
-        anguloEditText = findViewById(R.id.anguloEditText);
+        lado1= findViewById(R.id.lado1);
+        lado2 = findViewById(R.id.lado2);
+        angulo = findViewById(R.id.angulo);
+        radioGroup = findViewById(R.id.rgroup);
+        calcularButton = findViewById(R.id.calcularButton);
 
-        Button calcularButton = findViewById(R.id.calcularButton);
         calcularButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para pasar a la pantalla de resultados
+                // Llamar al método calcular
                 calcular();
             }
         });
     }
 
-        private void calcular() {
-            // Obtener valores de los EditText
-            double lado1 = Double.parseDouble(lado1EditText.getText().toString());
-            double lado2 = Double.parseDouble(lado2EditText.getText().toString());
-            double angulo = Double.parseDouble(anguloEditText.getText().toString());
+    // Método para realizar los cálculos
+    private void calcular() {
+        // Obtener valores de los EditText
+        double l1 = Double.parseDouble(lado1.getText().toString());
+        double l2 = Double.parseDouble(lado2.getText().toString());
+        double angul = Double.parseDouble(angulo.getText().toString());
 
-            // Calcular seno, coseno, área y perímetro
-            double seno = Math.sin(Math.toRadians(angulo));
-            double coseno = Math.cos(Math.toRadians(angulo));
-            double area = lado1 * lado2;
-            double perimetro = 2 * (lado1 + lado2);
+        // Obtener el ID del radio button seleccionado
+        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+        RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
 
-            // Crear un Intent para iniciar ResultadoActivity
-            Intent intent = new Intent(MainActivity.this, resultado.class);
+        // Crear un Intent para iniciar Resultado
+        Intent intent = new Intent(MainActivity.this, Resultado.class);
 
-            // Pasar los resultados como extras al Intent
-            intent.putExtra("seno", seno);
-            intent.putExtra("coseno", coseno);
-            intent.putExtra("area", area);
-            intent.putExtra("perimetro", perimetro);
+        // Pasar los valores y el tipo de cálculo como extras al Intent
+        intent.putExtra("lado1", l1);
+        intent.putExtra("lado2", l2);
+        intent.putExtra("angulo", angul);
 
-            // Iniciar la nueva actividad
-            startActivity(intent);
+        // Verificar si el usuario quiere calcular el área o el perímetro
+        boolean calcularArea = selectedRadioButton.getText().toString().equals(getString(R.string.area));
+        intent.putExtra("calcularArea", calcularArea);
+
+        // Calcular seno y coseno
+        double seno = Math.sin(Math.toRadians(angul));
+        double coseno = Math.cos(Math.toRadians(angul));
+        intent.putExtra("seno", seno);
+        intent.putExtra("coseno", coseno);
+
+        // Iniciar la nueva actividad
+        startActivity(intent);
     }
 }

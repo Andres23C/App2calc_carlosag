@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".resultado"
+            android:name=".Resultado"
             android:exported="true">
         </activity>
 
